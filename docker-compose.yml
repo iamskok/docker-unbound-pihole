@@ -1,0 +1,65 @@
+version: "3.7"
+
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    dns:
+      - 127.0.0.1
+      - 1.1.1.1
+    restart: unless-stopped
+    ports:
+      - 53:53/tcp
+      - 53:53/udp
+      - 67:67/udp
+      - 80:80/tcp
+      - 443:443/tcp
+    environment:
+      TZ: America/New_York
+      WEBPASSWORD: "${WEBPASSWORD}"
+      ServerIP: 192.168.1.30
+      DNS1: 10.0.0.3#53
+      DNS2: 10.0.0.4#53
+      IPv6: "no"
+      DNSSEC: "true"
+      DNS_BOGUS_PRIV: "true"
+      DNS_FQDN_REQUIRED: "true"
+      REV_SERVER: "true"
+      REV_SERVER_CIDR: 192.168.0.0/16
+      REV_SERVER_TARGET: 192.168.1.1
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - ./hosts:/etc/hosts
+      - ./etc-pihole/:/etc/pihole/
+      - ./etc-dnsmasq.d/:/etc/dnsmasq.d/
+    env_file:
+      - .env
+    networks:
+      pihole_net:
+        ipv4_address: 10.0.0.2
+
+  unbound-1:
+    container_name: unbound-1
+    image: iamskok/unbound:latest
+    restart: unless-stopped
+    privileged: true
+    networks:
+      pihole_net:
+        ipv4_address: 10.0.0.3
+
+  unbound-2:
+    container_name: unbound-2
+    image: iamskok/unbound:latest
+    restart: unless-stopped
+    privileged: true
+    networks:
+      pihole_net:
+        ipv4_address: 10.0.0.4
+
+networks:
+  pihole_net:
+    driver: bridge
+    ipam:
+      config:
+      - subnet: 10.0.0.0/29

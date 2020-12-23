@@ -1,0 +1,40 @@
+# Hosts
+
+## LAN
+
+### MacBooks
+192.168.1.10 vladimir-mbp-1
+192.168.1.11 vladimir-mbp-2
+192.168.1.12 thd-mbp
+
+### iPhones
+192.168.1.20 vladimir-iphone
+192.168.1.21 yana-iphone
+
+### Raspberry Pis
+192.168.1.30 raspberry-pi-1
+192.168.1.31 raspberry-pi-2
+192.168.1.32 raspberry-pi-3
+192.168.1.33 raspberry-pi-1
+
+### Switches
+192.168.1.100 usw-lite-8-poe
+
+
+
+## IoT
+
+### TVs
+192.168.2.10 kitchen-tv
+192.168.2.11 bedroom-tv
+
+### Home Assistants
+192.168.2.20 google-home
+
+### Thermostats
+192.168.2.30 nest-thermostat
+
+### Light Bulbs
+192.168.2.40 office-light-bulb-1
+192.168.2.41 office-light-bulb-2
+
