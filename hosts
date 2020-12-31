@@ -20,8 +20,6 @@
 ### Switches
 192.168.1.100 usw-lite-8-poe
 
-
-
 ## IoT
 
 ### TVs
@@ -38,3 +36,5 @@
 192.168.2.40 office-light-bulb-1
 192.168.2.41 office-light-bulb-2
 
+## Guest
+192.168.3.10 iphone-marina
