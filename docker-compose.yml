@@ -4,6 +4,9 @@ services:
   pihole:
     container_name: pihole
     image: pihole/pihole:latest
+    depends_on:
+      - "unbound-1"
+      - "unbound-2"
     dns:
       - 127.0.0.1
       - 1.1.1.1
@@ -17,7 +20,7 @@ services:
     environment:
       TZ: America/New_York
       WEBPASSWORD: "${WEBPASSWORD}"
-      ServerIP: 192.168.1.30
+      ServerIP: "${ServerIP}"
       DNS1: 10.0.0.3#53
       DNS2: 10.0.0.4#53
       IPv6: "no"
@@ -25,8 +28,8 @@ services:
       DNS_BOGUS_PRIV: "true"
       DNS_FQDN_REQUIRED: "true"
       REV_SERVER: "true"
-      REV_SERVER_CIDR: 192.168.0.0/16
-      REV_SERVER_TARGET: 192.168.1.1
+      REV_SERVER_CIDR: "${REV_SERVER_CIDR}"
+      REV_SERVER_TARGET: "${REV_SERVER_TARGET}"
     cap_add:
       - NET_ADMIN
     volumes:
