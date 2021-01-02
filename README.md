@@ -1,4 +1,4 @@
-# 2x Unbound DNS + Pi-hole with Docker compose
+# 2x Unbound DNS + Pi-hole (Docker compose)
 
 ## Setup
 
@@ -18,17 +18,17 @@ docker-compose up -d
 
 ## DNS Benchmark
 
-To check performace of this setup versus popular DNS server:
+To check performace of this setup vs popular DNS server:
 
-* login into PiHole
-* navigate to Settings > DNS
-* select predefined Upstream DNS Servers you want to benchmark against
-* install [namebench](https://github.com/catap/namebench) script(or similar)
-and execute it.
-* execute `docker ps -a` and find PiHole container id
-* execute `docker exec -it <container-id> sh` to access the container
-* execute `echo ">forward-dest >quit" | nc 127.0.0.1 4711` to get percentage
-of forwards to each server (There is a performance algorithm that will favor
+* Login into PiHole.
+* Navigate to Settings > DNS.
+* Select predefined upstream DNS servers you want to benchmark against.
+* Install [namebench](https://github.com/catap/namebench) or similar script
+and execute it. Alternatively use PiHole for 24 hours.
+* Find PiHole container id `docker ps -a`.
+* Access PiHole container `docker exec -it <container-id> sh`.
+* Execute `echo ">forward-dest >quit" | nc 127.0.0.1 4711` to get percentage
+of forwards to each server (PiHole has an algorithm which will favor
 the best performers. The best performers will get the most forwards.)
 
 ## Links
