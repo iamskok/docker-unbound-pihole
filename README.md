@@ -2,11 +2,13 @@
 
 ## Setup
 
-* Edit `WEBPASSWORD` in `.env`.
-* Edit `hosts` file to match your local devices.
-* Edit `etc-dnsmasq.d/custom-dns-records.conf` to configure local domains.
-* Change `REV_SERVER_TARGET` on your gateway IP address in `docker-compose.yml`.
-* Change `ServerIP` on your local IP address in `docker-compose.yml`.
+1. Update `.env` file:
+  * Set secure `WEBPASSWORD`.
+  * Set gateway IP address `REV_SERVER_TARGET`.
+  * Set local network in CIDR notation `REV_SERVER_CIDR`.
+  * Set PiHole local IP address `ServerIP`.
+2. Update `hosts` file to match your local devices (alternatively remove all records).
+3. Update `etc-dnsmasq.d/custom-dns-records.conf` to configure local domains resolutions (alternatively remove all records).
 
 ## Install
 
