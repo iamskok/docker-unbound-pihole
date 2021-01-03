@@ -18,11 +18,11 @@ services:
       - 80:80/tcp
       - 443:443/tcp
     environment:
-      TZ: America/New_York
+      TZ: "America/New_York"
       WEBPASSWORD: "${WEBPASSWORD}"
       ServerIP: "${ServerIP}"
-      DNS1: 10.0.0.3#53
-      DNS2: 10.0.0.4#53
+      DNS1: "10.0.0.3#53"
+      DNS2: "10.0.0.4#53"
       IPv6: "no"
       DNSSEC: "true"
       DNS_BOGUS_PRIV: "true"
