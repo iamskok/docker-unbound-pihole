@@ -37,5 +37,8 @@
 192.168.2.41 office-light-bulb-2
 192.168.2.42 office-light-bulb-3
 
+### Game Consoles
+192.168.2.50 retropie
+
 ## Guest
 192.168.3.10 iphone-marina
